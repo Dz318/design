@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.dao.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.demo.entity.Goods" >
+    <id column="goodId" property="goodid" jdbcType="INTEGER" />
+    <result column="goodName" property="goodname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    goodId, goodName, price
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where goodId = #{goodid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goods
+    where goodId = #{goodid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.entity.Goods" >
+    insert into goods (goodId, goodName, price
+      )
+    values (#{goodid,jdbcType=INTEGER}, #{goodname,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.entity.Goods" >
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodid != null" >
+        goodId,
+      </if>
+      <if test="goodname != null" >
+        goodName,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodid != null" >
+        #{goodid,jdbcType=INTEGER},
+      </if>
+      <if test="goodname != null" >
+        #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.entity.Goods" >
+    update goods
+    <set >
+      <if test="goodname != null" >
+        goodName = #{goodname,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where goodId = #{goodid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.entity.Goods" >
+    update goods
+    set goodName = #{goodname,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE}
+    where goodId = #{goodid,jdbcType=INTEGER}
+  </update>
+</mapper>
