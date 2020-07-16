@@ -20,4 +20,5 @@ public interface PayWayMapper {
     int updateByPrimaryKey(PayWay record);
 
     PayWay selectByType(Integer typeId);
+
 }

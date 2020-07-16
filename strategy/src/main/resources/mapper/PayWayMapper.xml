@@ -11,7 +11,7 @@
     payId, payName, discount, type
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from payway
     where payId = #{payid,jdbcType=INTEGER}
@@ -22,14 +22,14 @@
     from payway
     where type = #{typeId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from payway
     where payId = #{payid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.demo.entity.PayWay" >
-    insert into payway (payId, payName, discount, 
+    insert into payway (payId, payName, discount,
       type)
-    values (#{payid,jdbcType=INTEGER}, #{payname,jdbcType=VARCHAR}, #{discount,jdbcType=DOUBLE}, 
+    values (#{payid,jdbcType=INTEGER}, #{payname,jdbcType=VARCHAR}, #{discount,jdbcType=DOUBLE},
       #{type,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.demo.entity.PayWay" >

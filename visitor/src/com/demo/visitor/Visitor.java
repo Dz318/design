@@ -19,19 +19,19 @@ public interface Visitor {
     * @author      dz
     * @date        2020-4-30 11:00
     **/
-    public void visitBathRoom(BathRoom bathRoom);
+    void visitBathRoom(BathRoom bathRoom);
 
     /**
     *  进入商场
     * @author      dz
     * @date        2020-4-30 10:59
     **/
-    public void vistiStore(Store store);
+    void vistiStore(Store store);
 
     /**
     * 进入监控室
     * @author      dz
     * @date        2020-4-30 10:58
     **/
-    public void visitMonitoringRoom(MonitoringRoom monitoringRoom);
+    void visitMonitoringRoom(MonitoringRoom monitoringRoom);
 }

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 public class GoodsService {
     @Autowired
     private GoodsMapper goodsMapper;
+    
     public Goods selectByPrimaryKey(Integer goodid){
         return goodsMapper.selectByPrimaryKey(goodid);
     }
